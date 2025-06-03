@@ -1,0 +1,18 @@
+{
+    "name": "pieceofcodero/benchmark",
+    "description": "Lightweight, fluent benchmarking for PHP",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pieceofcodero\\Benchmark\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zoli Szabó",
+            "email": "zoli.szabo+github@gmail.com"
+        }
+    ],
+    "require": {}
+}
