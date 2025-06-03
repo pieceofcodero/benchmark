@@ -33,7 +33,11 @@ class Manager
     public function report(): array
     {
         return array_map(function (Benchmark $benchmark) {
-            return $benchmark->getTotal();
+            return sprintf(
+                'Total: %.6f seconds, Count: %d',
+                $benchmark->getCount(),
+                $benchmark->getTotal()
+            );
         }, $this->benchmarks);
     }
 }

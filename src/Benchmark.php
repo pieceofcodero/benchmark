@@ -5,9 +5,14 @@ namespace Pieceofcodero\Benchmark;
 class Benchmark
 {
     /**
-     * @var float Total measured time in seconds.
+     * @var float Total measured time in seconds. Only finalized measurements are included.
      */
     private $total = 0.0;
+
+    /**
+     * @var int Count of measurements. Only finalized measurements are counted.
+     */
+    private $count = 0;
 
     /**
      * @var float Start time of current measurement.
@@ -30,7 +35,8 @@ class Benchmark
     public function pause(): self
     {
         if ($this->running) {
-            $this->total   += microtime(true) - $this->startTime;
+            $this->total += microtime(true) - $this->startTime;
+            $this->count++;
             $this->running = false;
         }
         return $this;
@@ -99,6 +105,18 @@ class Benchmark
     public function getTotal(): float
     {
         return $this->total;
+    }
+
+    /**
+     * Get the count of measurements.
+     *
+     * This method returns the number of times the timer has been started.
+     *
+     * @return int
+     */
+    public function getCount(): int
+    {
+        return $this->count;
     }
 
     /**
