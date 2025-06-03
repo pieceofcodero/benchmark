@@ -35,8 +35,8 @@ class Manager
         return array_map(function (Benchmark $benchmark) {
             return sprintf(
                 'Total: %.6f seconds, Count: %d',
-                $benchmark->getCount(),
-                $benchmark->getTotal()
+                $benchmark->getTotal(),
+                $benchmark->getCount()
             );
         }, $this->benchmarks);
     }
